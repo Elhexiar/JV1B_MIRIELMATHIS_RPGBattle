@@ -1,0 +1,23 @@
+bouton{
+
+    color: rgb(221, 44, 44);
+    padding: 10px 10px 10px 10px;
+    background-color: blue;
+}
+
+interface_bas{
+
+    background-color :rgb(86, 80, 170);
+    width : 80%;
+    height : 20%;
+
+    /*align-items: flex-end;*/
+}
+
+ecran{
+
+    flex: auto;
+
+
+
+}
