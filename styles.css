@@ -16,27 +16,67 @@ bouton{
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-
-
-    
-
-    
 }
+
+.bg {
+
+    display : flex;
+    flex-direction: row-reverse;
+    position: absolute;
+    top:0%;
+    bottom:0%;
+    left:0%;
+    right:-1%;
+    background:url('front.png')0% 0, url('midleback.png')40% 0, url('midlefront.png')80% 0, url('back.png');
+    background-size :contain;
+    -webkit-animation: moving-images 400s ease infinite;
+    -moz-animation: moving-images 400s ease infinite;
+      -o-animation: moving-images 400s ease infinite;
+         animation: moving-images 400s ease infinite;
+
+
+    
+    }
+
+    @keyframes moving-images {
+        0%   {left:0;}
+        50%  {left:-9999px;}
+        100% {left:0;}
+      }
+      @-moz-keyframes moving-images {
+        0%   {left:0;}
+        50%  {left:-9999px;}
+        100% {left:0;}
+      }
+      @-webkit-keyframes moving-images {
+        0%   {left:0;}
+        50%  {left:-9999px;}
+        100% {left:0;}
+      }
+      @-o-keyframes moving-images {
+        0%   {left:0;}
+        50%  {left:-9999px;}
+        100% {left:0;}
+      }
+
+
 .interface_milieu{
-    background-color :rgb(199, 189, 104);
+    /*background-color :rgb(199, 189, 104);*/
     width : 98%;
-    height : 50%;
+    height : 60%;
     margin-left: 1%;
     margin-right: 1%;
     display: flex;
+    position:relative;
+    flex-direction: row;
+    justify-content:space-between;
 
 }
 
 .interface_haut{
     background-color :rgb(206, 102, 116);
     width : 98%;
-    height : 19%;
+    height : 9%;
     margin-top: 1%;
     margin-left: 1%;
     margin-right: 1%;
@@ -44,16 +84,85 @@ bouton{
 
 }
 
+.hero{
+
+    background-color: blue;
+    opacity: 50%;
+
+    width : 50%;
+    height:20%;
+
+    margin-right: 5%;
+    margin-left: 5%;
+
+
+
+
+}
+
+#hero_1{
+
+}
+
+#hero_2{
+    align-self: flex-end;
+}
+
+#hero_3{
+    
+}
+
+#hero_4{
+    
+}
+
+
+
+.heroBox{
+
+    position : relative;
+
+    background-color: rgb(86, 86, 219);
+    width: 25%;
+    height : 94%;
+    margin: 1%;
+    
+    display : flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items:flex-end ;
+
+    opacity: 75%;
+
+
+
+}
+
+.enemyBox{
+
+    position : relative;
+
+    background-color: rgb(212, 55, 81);
+
+    width: 30%;
+    height: 94%;
+
+    margin: 1%;
+
+    opacity: 75%;
+    
+
+}
 
 
 .ecran{
+    
 
     display: flex;
     top:0%;
     padding: 0%;
     flex-direction: column;
-    background-color:beige;
-
+  /*  background-color:beige;*/
 
 }
 
@@ -64,20 +173,26 @@ html, body {
     width:100%;
     margin:0;
     padding:0;
-    background-color: black;
+   /* background-color: black;
+    opacity:0.1;*/
 }
 
 .bouton{
+    
 
     background-color: blue;
     margin : 1%;
-    height: 25%;
-    width: 25%;
+    height: 40%;
+    width: 46%;
+
 }
 
 .action_window{
 
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
     background-color:rgb(101, 94, 197);
     height: 94%;
     width: 60%;
