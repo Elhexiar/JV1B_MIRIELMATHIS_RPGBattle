@@ -81,13 +81,16 @@ bouton{
     margin-left: 1%;
     margin-right: 1%;
     display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 
 }
 
 .hero{
 
     background-color: blue;
-    opacity: 50%;
+    opacity: 100%;
 
     width : 50%;
     height:20%;
@@ -95,25 +98,53 @@ bouton{
     margin-right: 5%;
     margin-left: 5%;
 
+    display: flex;
+    justify-content: center;
 
 
 
+
+}
+
+.hero_PV{
+
+    background-color: antiquewhite;
+
+}
+
+#hero_0{
+    display: flex;
+}
+
+#hero_0_PV{
+    initial-value: 50;
 }
 
 #hero_1{
-
-}
-
-#hero_2{
     align-self: flex-end;
 }
 
-#hero_3{
+#hero_1_PV{
+    initial-value: 50;
+}
+
+#hero_2{
+    display: flex;
     
 }
 
-#hero_4{
+#hero_2_PV{
+    initial-value: 50;
+}
+
+#hero_3{
+    display: flex;
     
+    
+}
+
+#hero_3_PV{
+    initial-value: 50;
 }
 
 
@@ -150,7 +181,21 @@ bouton{
     margin: 1%;
 
     opacity: 75%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     
+
+}
+
+.ennemy{
+
+    width: 60%;
+    height: 25%;
+    margin : 5%;
+    background-color: red;
 
 }
 
@@ -184,6 +229,16 @@ html, body {
     margin : 1%;
     height: 40%;
     width: 46%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.button_class{
+
+    height: 90%;
+    width: 90%;
 
 }
 
