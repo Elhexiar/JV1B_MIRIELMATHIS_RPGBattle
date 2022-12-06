@@ -5,6 +5,27 @@ var turn = 0;
 
 var current_Turn_Holder = "ALLIES";
 
+function updateStatsInfo(hero_data_array,enemy_data_array) {
+
+
+    for(i = 0; i<hero_data_array.length; i++){
+
+        document.getElementById("hero_"+i+"_PV").innerHTML = hero_data_array[i].PV
+        document.getElementById("hero_"+i).style.alignSelf = hero_data_array[i].current_alignment
+
+    }
+
+    for(i = 0; i<enemy_data_array.length; i++){
+
+        //document.getElementById("hero_"+i+"_PV").innerHTML = enemy_data_array[i].PV
+        document.getElementById("ennemy_"+i).style.alignSelf = enemy_data_array[i].current_alignment
+
+    }
+        
+
+
+}
+
 hero_0 = {PV:50, current_alignment:"flex-end"};
 hero_1 = {PV:50, current_alignment:"flex-end"};
 hero_2 = {PV:50, current_alignment:"flex-end"};
@@ -53,7 +74,59 @@ document.getElementById("button_0_0").onclick = function() {
 
     if(current_Turn_Holder =="ALLIES"){
 
-        for(i = 0, i< my_heroes_array.length, )
+        for(i = 0; i< my_ennemy_array.length; i++ ){
+
+            my_ennemy_array[i].current_alignment = "center"
+
+        }
+ 
+        for(i = 0; i< my_heroes_array.length; i++ ) { 
+
+            console.log(i)
+            console.log("turn " + turn)
+
+            if(turn == i){
+
+                my_heroes_array[i].current_alignment = "flex-start"
+
+
+            }else{
+
+                my_heroes_array[i].current_alignment = "flex-end"
+
+            }
+        }
+
+        updateStatsInfo(my_heroes_array, my_ennemy_array)
+
+    }
+
+    if(current_Turn_Holder =="ENNEMIES"){
+
+        for(i = 0; i< my_heroes_array.length; i++ ){
+
+            my_heroes_array[i].current_alignment = "flex-end"
+
+        }
+ 
+        for(i = 0; i< my_ennemy_array.length; i++ ) { 
+
+            console.log(i)
+            console.log("turn " + turn)
+
+            if(turn == i){
+
+                my_ennemy_array[i].current_alignment = "flex-end"
+
+
+            }else{
+
+                my_ennemy_array[i].current_alignment = "center"
+
+            }
+        }
+
+        updateStatsInfo(my_heroes_array, my_ennemy_array)
 
         
 

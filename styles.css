@@ -196,6 +196,9 @@ bouton{
     height: 25%;
     margin : 5%;
     background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 
@@ -233,6 +236,42 @@ html, body {
     justify-content: center;
     align-items: center;
 
+}
+
+.ennemy_bouton{
+    
+    margin : 1%;
+    height: 98%;
+    width: 98%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 50%;
+
+}
+
+#ennemy_0{
+
+    background-image:url('asset/Sprites/fenrir_wolf.png') ;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#ennemy_1{
+
+    background-image:url('asset/Sprites/femaleenemy.png') ;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    
+}
+
+#ennemy_2{
+
+
+    
 }
 
 .button_class{
