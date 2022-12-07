@@ -12,15 +12,17 @@ function updateStatsInfo(hero_data_array,enemy_data_array) {
 
         document.getElementById("hero_"+i+"_PV").innerHTML = hero_data_array[i].PV
         document.getElementById("hero_"+i).style.alignSelf = hero_data_array[i].current_alignment
-
     }
 
     for(i = 0; i<enemy_data_array.length; i++){
 
         //document.getElementById("hero_"+i+"_PV").innerHTML = enemy_data_array[i].PV
         document.getElementById("ennemy_"+i).style.alignSelf = enemy_data_array[i].current_alignment
-
     }
+
+
+
+
         
 
 

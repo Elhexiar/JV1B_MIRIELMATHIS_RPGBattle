@@ -18,6 +18,86 @@ bouton{
     justify-content: space-between;
 }
 
+.caracter_window{
+
+    background-color:rgb(101, 94, 197);
+    height: 94%;
+    width: 30%;
+    margin-right: 0.5%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.status_bar{
+
+    background-color: blue;
+
+    height: 20%;
+    width : 95%;
+    margin-left: 2%;
+
+    display: flex;
+    align-items: center;
+
+}
+
+.PV_placeholder{
+
+    margin-left: 2%;
+    margin-right: 2%;
+
+}
+.PV_counter{
+
+
+
+}
+
+.PV_bar{
+
+    width: 30%;
+    height: 90%;
+    border-style: outset;
+
+    display: flex;
+
+}
+
+.green_bar{
+
+    background-color: greenyellow;
+
+}
+
+#green_bar_hero_0{
+
+    width: 60%;
+    height: 100%;
+
+
+}
+#gray_bar_hero_0{
+
+    width: 40%;
+    height: 100%;
+
+
+}
+
+
+
+.gray_bar{
+
+    background-color: grey;
+
+
+}
+
+
+
 .bg {
 
     display : flex;
@@ -294,11 +374,3 @@ html, body {
     
 }
 
-.caracter_window{
-
-    background-color:rgb(101, 94, 197);
-    height: 94%;
-    width: 30%;
-    margin-right: 0.5%;
-
-}
