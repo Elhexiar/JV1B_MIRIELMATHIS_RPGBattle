@@ -52,8 +52,17 @@ bouton{
 }
 .PV_counter{
 
+    width: 10%;
 
 
+}
+
+.hero_class_name{
+
+    color: antiquewhite;
+    text-shadow: 10% 10% 20% black ;
+
+    margin-left: 5%;
 }
 
 .PV_bar{
@@ -68,24 +77,79 @@ bouton{
 
 .green_bar{
 
+    transition: 0.15s ease-in-out;
+
     background-color: greenyellow;
 
 }
 
 #green_bar_hero_0{
 
-    width: 60%;
+    width: 100%;
     height: 100%;
 
 
 }
 #gray_bar_hero_0{
 
-    width: 40%;
+    width: 0%;
     height: 100%;
 
 
 }
+
+#green_bar_hero_1{
+
+    width: 100%;
+    height: 100%;
+
+
+}
+#gray_bar_hero_1{
+
+    width: 0%;
+    height: 100%;
+
+
+}
+
+
+#green_bar_hero_2{
+
+    width: 100%;
+    height: 100%;
+
+
+}
+#gray_bar_hero_2{
+
+    width: 0%;
+    height: 100%;
+
+
+}
+
+
+
+#green_bar_hero_3{
+
+    width: 100%;
+    height: 100%;
+
+
+}
+#gray_bar_hero_3{
+
+    width: 0%;
+    height: 100%;
+
+
+}
+
+
+
+
+
 
 
 
@@ -153,6 +217,38 @@ bouton{
 
 }
 
+#texteBox{
+
+    width: 30%;
+    height: 30%;
+    background-color:  orange;
+    opacity: 80%;
+    margin-top: 1%;
+    border-radius: 5%;
+    border-style: outset;
+    border-color: orangered;
+
+    display: flex;
+    justify-content:space-between;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+
+#text_button {
+
+    height: 20%;
+    width: 50%;
+    margin: 1%;
+
+    background-color: beige;
+    visibility: visible;
+
+
+
+}
+
 .interface_haut{
     background-color :rgb(206, 102, 116);
     width : 98%;
@@ -168,6 +264,8 @@ bouton{
 }
 
 .hero{
+
+    transition: 0.15s ease-in-out;
 
     background-color: blue;
     opacity: 100%;
@@ -194,6 +292,9 @@ bouton{
 
 #hero_0{
     display: flex;
+    align-self: flex-start;
+    background-image: url();
+
 }
 
 #hero_0_PV{
@@ -201,6 +302,7 @@ bouton{
 }
 
 #hero_1{
+    
     align-self: flex-end;
 }
 
@@ -231,6 +333,8 @@ bouton{
 
 .heroBox{
 
+    transition: 0.15s ease-in-out;
+
     position : relative;
 
     background-color: rgb(86, 86, 219);
@@ -250,6 +354,8 @@ bouton{
 }
 
 .enemyBox{
+
+    transition: 0.15s ease-in-out;
 
     position : relative;
 
@@ -272,13 +378,16 @@ bouton{
 
 .ennemy{
 
+    transition: 0.15s ease-in-out;
+
     width: 60%;
-    height: 25%;
-    margin : 5%;
+    height: 30%;
+    margin : 2%;
     background-color: red;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 
 }
 
@@ -321,7 +430,7 @@ html, body {
 .ennemy_bouton{
     
     margin : 1%;
-    height: 98%;
+    height: 78%;
     width: 98%;
     display: flex;
     justify-content: center;
@@ -330,7 +439,7 @@ html, body {
 
 }
 
-#ennemy_0{
+#ennemy_0_bouton{
 
     background-image:url('asset/Sprites/fenrir_wolf.png') ;
     background-size: contain;
@@ -338,17 +447,17 @@ html, body {
     background-position: center;
 }
 
-#ennemy_1{
+#ennemy_1_bouton{
 
     background-image:url('asset/Sprites/femaleenemy.png') ;
-    background-size: contain;
+    background-size:contain;
     background-repeat: no-repeat;
     background-position: center;
 
     
 }
 
-#ennemy_2{
+#ennemy_2_bouton{
 
 
     
