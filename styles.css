@@ -278,6 +278,8 @@ bouton{
 
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
 
 
 
@@ -296,6 +298,9 @@ bouton{
     background-image: url();
 
 }
+#hero_0_bouton{
+
+}
 
 #hero_0_PV{
     initial-value: 50;
@@ -304,6 +309,9 @@ bouton{
 #hero_1{
     
     align-self: flex-end;
+}
+#hero_1_bouton{
+    
 }
 
 #hero_1_PV{
@@ -314,6 +322,9 @@ bouton{
     display: flex;
     
 }
+#hero_2_bouton{
+    
+}
 
 #hero_2_PV{
     initial-value: 50;
@@ -322,6 +333,9 @@ bouton{
 #hero_3{
     display: flex;
     
+    
+}
+#hero_3_bouton{
     
 }
 

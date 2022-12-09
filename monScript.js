@@ -7,13 +7,22 @@ console.log("loading");
 
 document.getElementById("text_button").style.visibility ="hidden";
 
+var selected_ennemy = "none"
+
+var selected_ally = "none"
+
 var turn = 0;
 
 current_attack = 10;
 
-var selected_action = "NONE"
+var selected_action = "none"
 
 var current_Turn_Holder = "ALLIES";
+
+var losingCondition = false;
+
+var dead_heroes =0;
+var dead_ennemies =0;
 
 function updateStatsInfo(hero_data_array,enemy_data_array) {
 
@@ -25,6 +34,7 @@ function updateStatsInfo(hero_data_array,enemy_data_array) {
             hero_data_array[i].alive = false;
             hero_data_array[i].PV = 0;
             document.getElementById("hero_"+i).style.visibility = "hidden"
+            dead_heroes +=1;
 
             
 
@@ -47,6 +57,7 @@ function updateStatsInfo(hero_data_array,enemy_data_array) {
             enemy_data_array[i].alive = false;
             enemy_data_array[i].PV = 0;
             document.getElementById("ennemy_"+i).style.visibility = "hidden"
+            dead_ennemies +=1
 
 
         }
@@ -57,15 +68,26 @@ function updateStatsInfo(hero_data_array,enemy_data_array) {
         
     }
 
+    if(dead_heroes >= 4){
+
+        losingCondition = true;
+
+    }
+    dead_heroes = 0;
+
+    if(dead_ennemies){
+        victory_condition = true;
+    }
+
 
 
     
 }
 
-hero_0 = {PV:50, current_alignment:"flex-end", alive: true, nom: "Priest"};
-hero_1 = {PV:50, current_alignment:"flex-end", alive: true, nom: "Warrior"};
-hero_2 = {PV:50, current_alignment:"flex-end", alive: true, nom: "Rogue"};
-hero_3 = {PV:50, current_alignment:"flex-end", alive: true, nom: "Driad"};
+hero_0 = {PV:50, current_alignment:"flex-end", alive: true, nom: "Priest",mana: 0};
+hero_1 = {PV:50, current_alignment:"flex-end", alive: true, nom: "Warrior",mana: 0};
+hero_2 = {PV:50, current_alignment:"flex-end", alive: true, nom: "Rogue",mana: 0};
+hero_3 = {PV:50, current_alignment:"flex-end", alive: true, nom: "Driad",mana: 0};
 
 
 
@@ -95,6 +117,11 @@ document.getElementById("ennemy_0_bouton").addEventListener("click",ennemy_0_sel
 document.getElementById("ennemy_1_bouton").addEventListener("click",ennemy_1_selected);
 document.getElementById("ennemy_2_bouton").addEventListener("click",ennemy_2_selected);
 
+document.getElementById("hero_0_bouton").addEventListener("click",hero_0_bouton_selected);
+document.getElementById("hero_1_bouton").addEventListener("click",hero_1_bouton_selected);
+document.getElementById("hero_2_bouton").addEventListener("click",hero_2_bouton_selected);
+document.getElementById("hero_3_bouton").addEventListener("click",hero_3_bouton_selected);
+
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -103,13 +130,15 @@ function getRandomInt(min, max) {
 
 function next_pressed(){
 
-    if(my_ennemy_array[turn].alive == true){
+    console.log(my_ennemy_array[turn].alive)
+
+    if(my_ennemy_array[turn].alive == true && losingCondition == false){
 
     
         targetIsNotCorrect = true;
         while(targetIsNotCorrect){
 
-            target_position = getRandomInt(0,3);
+            target_position = getRandomInt(0,4);
             console.log(" target position = "+ target_position + " Or alive :  " +my_heroes_array[target_position].alive)
 
             if(my_heroes_array[target_position].alive == true){
@@ -121,6 +150,8 @@ function next_pressed(){
         document.getElementById("text_from_textBox").innerHTML = my_ennemy_array[turn].nom + " décide d'attaquer " +my_heroes_array[target_position].nom + " et inflige " + 20 + " dégats !";
 
         my_heroes_array[target_position].PV -= 20;
+
+
 
     }
 
@@ -151,6 +182,30 @@ function ennemy_0_selected() {
         selected_action = "NONE";
 
         my_ennemy_array[0].PV -= current_attack
+
+        document.getElementById("text_from_textBox").innerHTML = my_heroes_array[turn].nom + " attaque " + my_ennemy_array[0].nom + " et inflige " + current_attack + " dégats !"
+
+        finDeTour()
+
+    }
+
+    if(selected_action == "SPECIAL" && current_Turn_Holder == "ALLIES" && turn == 1){
+        
+        selected_ennemy = 0
+
+        attaque_warrior()
+
+        selected_ennemy = "none"
+
+        finDeTour()
+
+    }
+    if(selected_action == "SPECIAL" && current_Turn_Holder == "ALLIES" && turn == 2){
+
+        selected_ennemy = 0
+        attaque_rogue()
+        selected_ennemy = "none"
+        
         finDeTour()
 
     }
@@ -169,6 +224,33 @@ function ennemy_1_selected() {
         selected_action = "NONE";
 
         my_ennemy_array[1].PV -= current_attack
+
+        document.getElementById("text_from_textBox").innerHTML = my_heroes_array[turn].nom + " attaque " + my_ennemy_array[1].nom + " et inflige " + current_attack + " dégats !"
+
+
+
+        finDeTour()
+
+    }
+    if(selected_action == "SPECIAL" && current_Turn_Holder == "ALLIES" && turn == 1){
+
+        selected_ennemy = 1
+
+        attaque_warrior()
+
+        selected_ennemy = "none"
+        
+        finDeTour()
+
+    }
+    if(selected_action == "SPECIAL" && current_Turn_Holder == "ALLIES" && turn == 2){
+
+        selected_ennemy = 1
+
+        attaque_rogue()
+        
+        selected_ennemy = "none"
+        
         finDeTour()
 
     }
@@ -189,9 +271,138 @@ function ennemy_2_selected() {
         selected_action = "NONE";
 
         my_ennemy_array[2].PV -= current_attack
+
+        document.getElementById("text_from_textBox").innerHTML = my_heroes_array[turn].nom + " attaque " + my_ennemy_array[2].nom + " et inflige " + current_attack + " dégats !"
+
         finDeTour()
 
     }
+    if(selected_action == "SPECIAL" && current_Turn_Holder == "ALLIES" && turn == 1){
+
+        selected_ennemy = 2
+
+        attaque_warrior()
+        
+        selected_ennemy = "none"
+
+        finDeTour()
+
+    }
+    if(selected_action == "SPECIAL" && current_Turn_Holder == "ALLIES" && turn == 2){
+
+        selected_ennemy = 2
+
+        attaque_rogue()
+
+        selected_ennemy = "none"
+        
+        finDeTour()
+
+    }
+
+}
+
+function hero_0_bouton_selected(){
+
+    if(selected_action == "SPECIAL" && current_Turn_Holder == "ALLIES" && turn == 0){
+
+        selected_ally = 0;
+
+        priestHeal();
+
+        selected_ally = "none"
+
+    }
+    if(selected_action == "SPECIAL" && current_Turn_Holder == "ALLIES" && turn == 3){
+
+        selected_ally = 0;
+
+        driadHeal();
+
+        selected_ally = "none"
+
+    }
+    
+
+
+
+}
+
+function hero_1_bouton_selected(){
+
+    if(selected_action == "SPECIAL" && current_Turn_Holder == "ALLIES" && turn == 0){
+
+        selected_ally = 1;
+
+        priestHeal();
+
+        selected_ally = "none"
+
+    }
+    if(selected_action == "SPECIAL" && current_Turn_Holder == "ALLIES" && turn == 3){
+
+        selected_ally = 1;
+
+        driadHeal();
+
+        selected_ally = "none"
+
+    }
+    
+
+
+
+}
+
+function hero_2_bouton_selected(){
+
+    if(selected_action == "SPECIAL" && current_Turn_Holder == "ALLIES" && turn == 0){
+
+        selected_ally = 2;
+
+        priestHeal();
+
+        selected_ally = "none"
+
+    }
+    if(selected_action == "SPECIAL" && current_Turn_Holder == "ALLIES" && turn == 3){
+
+        selected_ally = 2;
+
+        driadHeal();
+
+        selected_ally = "none"
+
+    }
+    
+
+
+
+}
+
+function hero_3_bouton_selected(){
+
+    if(selected_action == "SPECIAL" && current_Turn_Holder == "ALLIES" && turn == 0){
+
+        selected_ally = 3;
+
+        priestHeal();
+
+        selected_ally = "none"
+
+    }
+    if(selected_action == "SPECIAL" && current_Turn_Holder == "ALLIES" && turn == 3){
+
+        selected_ally = 3;
+
+        driadHeal();
+
+        selected_ally = "none"
+
+    }
+    
+
+
 
 }
 
@@ -214,10 +425,41 @@ function attaque() {
 
 function action_special() {
 
+    document.getElementById("text_from_textBox").innerHTML = "vous utilisez la compétence spéciale de : " + my_heroes_array[turn].nom;
+
+    selected_action = "SEPCIAL";
+
     
 
 
 
+
+}
+
+function priestHeal(){
+
+
+    if(my_heroes_array[selected_ally].alive && my_heroes_array[0].mana >=20){
+
+        my_heroes_array[selected_ally].PV += 30;
+        my_heroes_array[0].mana -=20;
+        document.getElementById("text_from_textBox").innerHTML = "Le pretre a soigner de 30 PV "+ my_heroes_array[selected_ally].nom;
+
+    }
+    
+
+}
+
+function attaque_warrior(){
+
+}
+
+function attaque_rogue(){
+
+
+}
+
+function driadHeal(){
 
 }
 
@@ -228,6 +470,7 @@ function turn_switch_check(){
         current_Turn_Holder = "ALLIES";
         document.getElementById("turn_holder_print").innerHTML = current_Turn_Holder;
         document.getElementById("text_button").style.visibility = "hidden";
+        document.getElementById("text_from_textBox").innerHTML = "C'est a votre tour d'attaquer !"
 
     }
 
