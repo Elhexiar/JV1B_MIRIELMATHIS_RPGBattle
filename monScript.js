@@ -45,6 +45,8 @@ function updateStatsInfo(hero_data_array,enemy_data_array) {
         document.getElementById("green_bar_hero_"+i).style.width = (hero_data_array[i].PV * 2 )+ "%";
         document.getElementById("gray_bar_hero_"+i).style.width = (100 -(hero_data_array[i].PV * 2)) + "%";
         document.getElementById("hero_"+i).style.alignSelf = hero_data_array[i].current_alignment;
+        document.getElementById("hero_"+i+"_mana").innerHTML = hero_data_array[i].mana;
+        
 
         
 
@@ -427,7 +429,7 @@ function action_special() {
 
     document.getElementById("text_from_textBox").innerHTML = "vous utilisez la compétence spéciale de : " + my_heroes_array[turn].nom;
 
-    selected_action = "SEPCIAL";
+    selected_action = "SPECIAL";
 
     
 
@@ -445,6 +447,12 @@ function priestHeal(){
         my_heroes_array[0].mana -=20;
         document.getElementById("text_from_textBox").innerHTML = "Le pretre a soigner de 30 PV "+ my_heroes_array[selected_ally].nom;
 
+        finDeTour();
+
+    }else{
+
+        document.getElementById("text_from_textBox").innerHTML = "Pas assez de Mana"
+
     }
     
 
@@ -452,40 +460,128 @@ function priestHeal(){
 
 function attaque_warrior(){
 
+    if(my_ennemy_array[selected_ennemy].alive && my_heroes_array[1].mana >= 20){
+
+        my_ennemy_array[selected_ennemy].PV -=30;
+        my_heroes_array[1].mana -=20;
+        document.getElementById("text_from_textBox").innerHTML = my_heroes_array[1].nom + " a charger "+my_ennemy_array[selected_ennemy].nom+" et inflige 30 degats";
+
+        finDeTour();
+
+    }else{
+        document.getElementById("text_from_textBox").innerHTML = "Pas assez de Mana"
+
+    }
+
+
+
 }
 
 function attaque_rogue(){
 
+    if(my_ennemy_array[selected_ennemy].alive && my_heroes_array[2].mana >= 20){
+
+        for(i = 0;i < my_ennemy_array.length;i++){
+            if(my_ennemy_array[i].alive){
+                my_ennemy_array[i].PV -= 10;
+            }
+        }
+        my_heroes_array[2].mana -=20;
+        document.getElementById("text_from_textBox").innerHTML = my_heroes_array[2].nom +" lance une volee de fleche et inflige 10 degats a tout les ennemies";
+
+        finDeTour();
+
+    }else{
+        document.getElementById("text_from_textBox").innerHTML = "Pas assez de Mana"
+
+    }
 
 }
 
 function driadHeal(){
+
+    if(my_heroes_array[3].mana >= 20 ){
+        
+        for(i =0;i < my_heroes_array.length; i++){
+
+            if(my_heroes_array[i].alive){
+                my_heroes_array[i].PV +=10
+            }
+        
+
+        }
+        my_heroes_array[3].mana -=20;
+        document.getElementById("text_from_textBox").innerHTML = my_heroes_array[3].nom + " soigne tout le monde de 10 PV"
+
+        finDeTour();
+
+
+    }else{
+        document.getElementById("text_from_textBox").innerHTML = "Pas assez de Mana"
+
+    }
+
+
+
 
 }
 
 function turn_switch_check(){
 
     if(turn == 3 && current_Turn_Holder == "ENNEMIES"){
-        turn = 0;
+        turn = turn_start();
         current_Turn_Holder = "ALLIES";
         document.getElementById("turn_holder_print").innerHTML = current_Turn_Holder;
         document.getElementById("text_button").style.visibility = "hidden";
-        document.getElementById("text_from_textBox").innerHTML = "C'est a votre tour d'attaquer !"
+        document.getElementById("text_from_textBox").innerHTML = "C'est a votre tour d'attaquer !";
+
+        for(i =0; i < my_heroes_array.length; i++){
+
+            my_heroes_array[i].mana += 10;
+            
+        }
 
     }
 
     if(turn == 4 ){
-        turn = 0;
         if(current_Turn_Holder =="ALLIES"){
+            turn = turn_start();
             current_Turn_Holder = "ENNEMIES"
 
-            document.getElementById("text_from_textBox").innerHTML = "C'est au tour des Ennemies !";
+            document.getElementById("text_from_textBox").innerHTML = document.getElementById("text_from_textBox").innerHTML + "\nC'est au tour des Ennemies !";
             document.getElementById("text_button").style.visibility = "visible";
 
         }
         document.getElementById("turn_holder_print").innerHTML = current_Turn_Holder;
     }
     document.getElementById("turn_count").innerHTML = turn+1;
+
+
+}
+
+function turn_start() {
+
+
+    if(current_Turn_Holder == "ALLIES"){
+        for(i =0; i < my_heroes_array.length; i++){
+            if(my_heroes_array[i].alive){
+                return(i)
+            }
+            return(0)
+        }
+        return(0)
+
+    }
+    if(current_Turn_Holder == "ENNEMIES"){
+        for(i =0; i < my_ennemy_array.length; i++){
+            if(my_ennemy_array[i].alive){
+                return(i)
+            }
+
+        }
+        return(0)
+
+    }
 
 
 }

@@ -41,6 +41,7 @@ bouton{
 
     display: flex;
     align-items: center;
+    border-radius: 5%;
 
 }
 
@@ -351,7 +352,7 @@ bouton{
 
     position : relative;
 
-    background-color: rgb(86, 86, 219);
+    /* background-color: rgb(86, 86, 219); */
     width: 25%;
     height : 94%;
     margin: 1%;
@@ -373,7 +374,7 @@ bouton{
 
     position : relative;
 
-    background-color: rgb(212, 55, 81);
+    /* background-color: rgb(212, 55, 81); */
 
     width: 30%;
     height: 94%;
@@ -494,6 +495,9 @@ html, body {
     height: 94%;
     width: 60%;
     margin-left: 0.5%;
+    border-style: groove;
+    border-color: blue;
+    border-radius: 5%;
     
 }
 
