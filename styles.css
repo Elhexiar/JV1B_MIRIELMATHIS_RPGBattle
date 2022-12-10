@@ -51,6 +51,42 @@ bouton{
     margin-right: 2%;
 
 }
+
+.mana_placeholder{
+
+    color: antiquewhite;
+
+}
+
+.mana_counter{
+
+    width: 10%;
+    justify-content: center;
+    align-content: center;
+
+    background-color:antiquewhite;
+
+}
+
+.ennemy_PV_text_placeholder{
+
+    height: 20%;
+    width : 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    
+}
+
+.ennemy_PV_text{
+
+
+
+
+
+}
+
 .PV_counter{
 
     width: 10%;
@@ -64,6 +100,8 @@ bouton{
     text-shadow: 10% 10% 20% black ;
 
     margin-left: 5%;
+    margin-right:2%;
+    width:10%;
 }
 
 .PV_bar{
@@ -81,6 +119,7 @@ bouton{
     transition: 0.15s ease-in-out;
 
     background-color: greenyellow;
+    /*background-color: limegreen; */
 
 }
 
@@ -230,9 +269,9 @@ bouton{
     border-color: orangered;
 
     display: flex;
-    justify-content:space-between;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
 
 
 }
@@ -261,6 +300,33 @@ bouton{
     justify-content: center;
     flex-direction: column;
     align-items: center;
+
+}
+
+#turn_count{
+
+
+
+}
+
+#endgame_screen{
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 10vh;
+    
+}
+
+#upper_info_container{
+
+    display : flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+
+
 
 }
 
@@ -296,10 +362,18 @@ bouton{
 #hero_0{
     display: flex;
     align-self: flex-start;
-    background-image: url();
+    background-color: transparent;
 
 }
 #hero_0_bouton{
+
+
+    background-image: url("asset/healer_m.png");
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    background-color: transparent;
 
 }
 
@@ -310,8 +384,17 @@ bouton{
 #hero_1{
     
     align-self: flex-end;
+    background-color: transparent;
+
 }
 #hero_1_bouton{
+
+    background-image: url("asset/warrior_m.png");
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    background-color: transparent;
     
 }
 
@@ -321,9 +404,17 @@ bouton{
 
 #hero_2{
     display: flex;
+    background-color: transparent;
     
 }
 #hero_2_bouton{
+
+    background-image: url('asset/rogue.png');
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    background-color: transparent;
     
 }
 
@@ -333,10 +424,19 @@ bouton{
 
 #hero_3{
     display: flex;
+    background-color: transparent;
     
     
 }
+
 #hero_3_bouton{
+
+    background-image:url('asset/driade.png') ;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    background-color: transparent;
     
 }
 
@@ -362,7 +462,8 @@ bouton{
     justify-content:space-around;
     align-items:flex-end ;
 
-    opacity: 75%;
+    opacity: 100%;
+    
 
 
 
@@ -381,8 +482,6 @@ bouton{
 
     margin: 1%;
 
-    opacity: 75%;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -398,7 +497,6 @@ bouton{
     width: 60%;
     height: 30%;
     margin : 2%;
-    background-color: red;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -450,7 +548,15 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 50%;
+    background-color: none;
+
+}
+
+.ennemy_button_class{
+    
+
+    background-color: transparent;
+    border: none
 
 }
 
@@ -461,7 +567,6 @@ html, body {
     background-repeat: no-repeat;
     background-position: center;
 }
-
 #ennemy_1_bouton{
 
     background-image:url('asset/Sprites/femaleenemy.png') ;
@@ -474,6 +579,11 @@ html, body {
 
 #ennemy_2_bouton{
 
+    background-image:url('asset/Sprites/harlerquin.png') ;
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
 
     
 }
@@ -485,7 +595,21 @@ html, body {
 
 }
 
-.action_window{
+.hero_button_class{
+
+    height: 90%;
+    width: 90%;
+
+}
+
+.ennemy_button_class{
+
+    height: 90%;
+    width: 90%;
+
+}
+
+#action_window_0{
 
     display: flex;
     flex-wrap: wrap;

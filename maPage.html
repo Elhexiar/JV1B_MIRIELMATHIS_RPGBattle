@@ -11,12 +11,19 @@
     <body class="ecran">
 
         <div class="interface_haut">
-            <div id="turn_holder_print">
-                ALLIES
+            <div id="upper_info_container">
+                <div id="turn_holder_print">
+                    ALLIES
+                </div>
+                <div>TURN</div>
+                <div id="turn_count">
+                    PRIEST
+                </div>
+
             </div>
-            <div>TURN</div>
-            <div id="turn_count">
-                1
+            
+            <div id="endgame_screen">
+
             </div>
         </div>
         <div class="interface_milieu">
@@ -28,38 +35,43 @@
 
                 <div class="ennemy" id="ennemy_0">
                     <div class="ennemy_bouton">
-                        <button id="ennemy_0_bouton" type="button" class="button_class">
-                            ennemy_0
+                        <button id="ennemy_0_bouton" type="button" class="ennemy_button_class">
                         </button>
                         
                     </div>
-                    <div class="ennemy_PV_text" id="ennemy_0_PV">
-                        50
+                    <div class="ennemy_PV_text_placeholder">
+                        <div class="ennemy_PV_text" id="ennemy_0_PV">
+                            50
+                        </div>
                     </div>
 
                 </div>
                 <div class="ennemy" id="ennemy_1">
                     <div class="ennemy_bouton">
-                        <button id="ennemy_1_bouton" type="button" class="button_class">
-                            ennemy_1
+                        <button id="ennemy_1_bouton" type="button" class="ennemy_button_class">
                         </button>
                         
                     </div>
-                    <div class="ennemy_PV_text" id="ennemy_1_PV">
-                        50
+                    <div class="ennemy_PV_text_placeholder">
+                        <div class="ennemy_PV_text" id="ennemy_1_PV">
+                            50
+                        </div>
                     </div>
 
                 </div>
                 <div class="ennemy" id="ennemy_2">
                     <div class="ennemy_bouton">
-                        <button id="ennemy_2_bouton" type="button" class="button_class">
+                        <button id="ennemy_2_bouton" type="button" class="ennemy_button_class">
                             ennemy_2
                         </button>
                         
                     </div>
-                    <div class="ennemy_PV_text" id="ennemy_2_PV">
-                        50
+                    <div class="ennemy_PV_text_placeholder">
+                        <div class="ennemy_PV_text" id="ennemy_2_PV">
+                            50
+                        </div>
                     </div>
+                    
 
                 </div>
 
@@ -68,7 +80,7 @@
 
             <div id="texteBox">
                 <div id="text_from_textBox">
-                    TEST
+                    Vous pouvez attaquer un ennemis en appuyant sur le bouton attaque puis sur l'ennemie que vous voulez attaquer !
                 </div>
                 
                 <button id="text_button" type="button" class="button_class">
@@ -79,8 +91,8 @@
             <div class="heroBox">
 
                 <div class="hero" id="hero_0">
-                    <button id="hero_0_bouton" type="button" class="button_class">
-                        hero_0
+                    <button id="hero_0_bouton" type="button" class="hero_button_class">
+                        
                     </button>
                     <div  id="hero_0_PV" class="hero_PV">
                        50 
@@ -88,8 +100,7 @@
                 </div>
 
                 <div class="hero" id="hero_1">
-                    <button id="hero_1_bouton" type="button" class="button_class">
-                        hero_1
+                    <button id="hero_1_bouton" type="button" class="hero_button_class">
                     </button>
                     <div  id="hero_1_PV" class="hero_PV">
                         50
@@ -97,8 +108,7 @@
                 </div>
 
                 <div class="hero" id="hero_2">
-                    <button id="hero_2_bouton" type="button" class="button_class">
-                        hero_2
+                    <button id="hero_2_bouton" type="button" class="hero_button_class">
                     </button>
                     <div  id="hero_2_PV" class="hero_PV">
                         50
@@ -107,8 +117,7 @@
                 </div>
 
                 <div class="hero" id="hero_3">
-                    <button id="hero_3_bouton" type="button" class="button_class">
-                        hero_3
+                    <button id="hero_3_bouton" type="button" class="hero_button_class">
                     </button>
                     <div  id="hero_3_PV" class="hero_PV">
                         50
@@ -120,7 +129,7 @@
             
         </div>
         <div class="interface_bas">
-            <div class="action_window">
+            <div class="action_window" id="action_window_0">
 
                 <div class="bouton">
                     <button id="button_0_0" type="button" class="button_class">
